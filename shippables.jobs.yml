@@ -10,7 +10,7 @@ jobs:
     type: runCI             # required
     steps:                  # required
       - IN: Names_FrontEnd_ciRepo   # at least one IN or OUT required
-      - IN: Backend_Tested_Image
+      - IN: Names_Backend_runCI
       - OUT:FrondEnd_Tested_Image
       
       
