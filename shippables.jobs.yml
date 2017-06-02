@@ -5,6 +5,14 @@ jobs:
       - IN: Names_Backend_ciRepo   # at least one IN or OUT required
       - OUT:Backend_Tested_Image
       
+      
+  - name: Names_FrontEnd_runCI      # required
+    type: runCI             # required
+    steps:                  # required
+      - IN: Names_FrontEnd_ciRepo   # at least one IN or OUT required
+      - OUT:FrondEnd_Tested_Image
+      
+      
   - name: deploy_Backend_to_Heroku
     type: deploy/manifest/runSh/runCLI
     steps:
