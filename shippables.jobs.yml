@@ -3,19 +3,36 @@ jobs:
     type: runCI             # required
     steps:                  # required
       - IN: Names_Backend_ciRepo   # at least one IN or OUT required
-      - OUT:Backend_Tested_Image
+      - OUT:Backend_Integration_Tested
+      - TASK:                                   
+        - script: "echo Starting ...."  
       
       
   - name: Names_FrontEnd_runCI      # required
     type: runCI             # required
     steps:                  # required
       - IN: Names_FrontEnd_ciRepo   # at least one IN or OUT required
-      - IN: Names_Backend_runCI
-      - OUT:FrondEnd_Tested_Image
+      - IN: Backend_Integration_Tested
+      - OUT:Web_FrontEnd_Integration_Tested
+      - TASK:                                   
+        - script: "echo Starting ...."  
       
       
   - name: deploy_Backend_to_Heroku
     type: deploy/manifest/runSh/runCLI
     steps:
-      - IN: Backend_Tested_Image
-      - OUT: Backend_Deployed_Image
+      - IN: Backend_Integration_Tested
+      - OUT: Backend_Deployed_in_Production
+      - TASK:                                   
+        - script: "echo Starting ...."  
+
+      
+ - name: Deployment_Tests_in_Production
+    type: deploy/manifest/runSh/runCLI
+    steps:
+      - IN: Backend_Deployed_in_Production
+      - OUT: Backend_Tested_in_Production
+      - TASK:                                   
+        - script: "echo Starting ...."  
+
+  

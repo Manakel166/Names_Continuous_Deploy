@@ -1,0 +1,61 @@
+resources:
+  - name: Backend_Integration_Tested                        #required
+    type: params                           #required
+    version:
+      params:
+        Component: "Backend"                     #requires at least one
+        Status: "tested"                     #optional
+        
+  - name: Backend_Deployed_in_Production                         #required
+    type: params                           #required
+    version:
+      params:
+        Component: "Backend"                     #requires at least one
+        Status: "Deployed"                     #optional  
+
+  - name: Backend_Tested_in_Production                         #required
+    type: params                           #required
+    version:
+      params:
+        Component: "Backend"                     #requires at least one
+        Status: "Deployed_And_Tested"                     #optional          
+
+        
+  - name: Web_FrontEnd_Integration_Tested                        #required
+    type: params                           #required
+    version:
+      params:
+        Component: "Web_Front"                     #requires at least one
+        Status: "tested"                     #optional
+        
+  - name: Web_FrontEnd_Deployed_in_Production                         #required
+    type: params                           #required
+    version:
+      params:
+        Component: "Web_Front"                     #requires at least one
+        Status: "Deployed"                     #optional  
+
+  - name: Web_FrontEnd_Tested_in_Production                         #required
+    type: params                           #required
+    version:
+      params:
+        Component: "Web_Front"                     #requires at least one
+        Status: "Deployed_And_Tested"                     #optional   
+
+ - name: Mobile_FrontEnd_Integration_Tested                        #required
+    type: params                           #required
+    version:
+      params:
+        Component: "Web_Front"                     #requires at least one
+        Status: "tested"                     #optional
+        
+  - name: Mobile_FrontEnd_Deployed_To_Beta_Testers                         #required
+    type: params                           #required
+    version:
+      params:
+        Component: "Web_Front"                     #requires at least one
+        Status: "Deployed"                     #optional          
+
+
+        
+     
