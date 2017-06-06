@@ -1,10 +1,10 @@
 resources:
   - name: Backend_Integration_Tested                        #required
-    type: params                           #required
-    version:
-      params:
-        Component: "Backend"                     #requires at least one
-        Status: "tested"                     #optional
+    type: notification          #required
+    pointer:
+      method: irc
+      recipients:
+        - "#backend_status"               #required
 
   - name: Backend_Deployed_in_Production                         #required
     type: params                           #required
