@@ -1,21 +1,17 @@
-jobs:
+jobs: 
   - name: Names_Backend_runCI      # required
     type: runCI             # required
     steps:                  # required
       - IN: Names_Backend_ciRepo   # at least one IN or OUT required
-      - OUT:Backend_Integration_Tested
-      
-      
+      - OUT: Backend_Integration_Tested
+
   - name: Names_FrontEnd_runCI      # required
     type: runCI             # required
     steps:                  # required
       - IN: Names_FrontEnd_ciRepo   # at least one IN or OUT required
-      - IN: Backend_Integration_Tested
-      - OUT:Web_FrontEnd_Integration_Tested
- 
-      
-      
-  - name: deploy_Backend_to_Heroku
+      - OUT: Web_FrontEnd_Integration_Tested
+
+  - name: Deploy_Back_To_PROD
     type: runCLI
     steps:
       - IN: Backend_Integration_Tested
@@ -24,7 +20,7 @@ jobs:
         - script: "echo Starting ...."  
 
       
-  - name: Deployment_Tests_in_Production
+  - name: Production_Tests
     type: runCLI
     steps:
       - IN: Backend_Deployed_in_Production
