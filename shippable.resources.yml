@@ -46,14 +46,14 @@ resources:
     type: params                           #required
     version:
       params:
-        Component: "Web_Front"                     #requires at least one
+        Component: "Mobile_Front"                     #requires at least one
         Status: "tested"                     #optional
         
   - name: Mobile_FrontEnd_Deployed_To_Beta_Testers                         #required
     type: params                           #required
     version:
       params:
-        Component: "Web_Front"                     #requires at least one
+        Component: "Mobile_Front"                     #requires at least one
         Status: "Deployed"                     #optional          
 
 
