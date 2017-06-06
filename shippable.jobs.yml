@@ -19,11 +19,45 @@ jobs:
       - TASK:                                   
         - script: "echo Starting ...."  
 
-      
-  - name: Production_Tests
+  - name: BACK_Prod_Tests
     type: runCLI
     steps:
       - IN: Backend_Deployed_in_Production
       - OUT: Backend_Tested_in_Production
       - TASK:                                   
         - script: "echo Starting ...."  
+
+  - name: Deploy_WEB_to_PROD
+    type: runCLI
+    steps:
+      - IN: Backend_Tested_in_Production
+      - IN: Web_FrontEnd_Integration_Tested
+      - OUT: Web_FrontEnd_Deployed_in_Production
+      - TASK:                                   
+        - script: "echo Starting ...." 
+
+  - name: WEB_Prod_Tests
+    type: runCLI
+    steps:
+      - IN: Web_FrontEnd_Deployed_in_Production
+      - OUT: Web_FrontEnd_Tested_in_Production
+      - TASK:                                   
+        - script: "echo Starting ...."          
+        
+  - name: Build_Mobile_App
+    type: runCLI
+    steps:
+      - IN: Web_FrontEnd_Integration_Tested
+      - OUT: Mobile_FrontEnd_Integration_Tested
+      - TASK:                                   
+        - script: "echo Starting ...."
+
+
+  - name: Mobile_to_Beta_Testers
+    type: runCLI
+    steps:
+      - IN: Backend_Tested_in_Production
+      - IN: Mobile_FrontEnd_Integration_Tested
+      - OUT: Mobile_FrontEnd_Deployed_To_Beta_Testers  
+      - TASK:                                   
+        - script: "echo Starting ...."          
