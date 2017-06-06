@@ -1,59 +1,59 @@
 resources:
-  - name: Backend_Integration_Tested                        #required
+  - name: BACK_Tested                        #required
     type: params                           #required
     version:
       params:
         Component: "Backend"                     #requires at least one
         Status: "tested"                     #optional  
 
-  - name: Backend_Deployed_in_Production                         #required
+  - name: BACK_in_PROD                         #required
     type: params                           #required
     version:
       params:
         Component: "Backend"                     #requires at least one
         Status: "Deployed"                     #optional  
 
-  - name: Backend_Tested_in_Production                         #required
+  - name: BACK_PROD_Tested                         #required
     type: params                           #required
     version:
       params:
         Component: "Backend"                     #requires at least one
         Status: "Deployed_And_Tested"                     #optional          
 
-  - name: Web_FrontEnd_Integration_Tested                        #required
+  - name: WEB_Tested                        #required
     type: params                           #required
     version:
       params:
         Component: "Web_Front"                     #requires at least one
         Status: "tested"                     #optional
 
-  - name: Web_FrontEnd_Deployed_in_Production                         #required
+  - name: WEB_in_PROD                         #required
     type: params                           #required
     version:
       params:
         Component: "Web_Front"                     #requires at least one
         Status: "Deployed"                     #optional  
 
-  - name: Web_FrontEnd_Tested_in_Production                         #required
+  - name: WEB_PROD_Tested                         #required
     type: params                           #required
     version:
       params:
         Component: "Web_Front"                     #requires at least one
         Status: "Deployed_And_Tested"                     #optional   
 
-  - name: Mobile_FrontEnd_Integration_Tested                        #required
+  - name: MOBILE_Tested                        #required
     type: params                           #required
     version:
       params:
         Component: "Mobile_Front"                     #requires at least one
         Status: "tested"                     #optional
 
-  - name: Mobile_FrontEnd_Deployed_To_Beta_Testers                         #required
+  - name: MOBILE_to_BETA_testers                         #required
     type: params                           #required
     version:
       params:
         Component: "Mobile_Front"                     #requires at least one
-        Status: "Deployed_"                     #optional          
+        Status: "Deployed"                     #optional          
 
 
         
