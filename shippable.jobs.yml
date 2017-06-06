@@ -27,12 +27,10 @@ jobs:
         - script: "echo Starting ...."  
 
       
- - name: Deployment_Tests_in_Production
+  - name: Deployment_Tests_in_Production
     type: deploy/manifest/runSh/runCLI
     steps:
       - IN: Backend_Deployed_in_Production
       - OUT: Backend_Tested_in_Production
       - TASK:                                   
         - script: "echo Starting ...."  
-
-  
