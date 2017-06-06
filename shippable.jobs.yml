@@ -43,7 +43,7 @@ jobs:
   - name: WEB_To_PROD
     type: runCLI
     steps:
-      - IN:WEB_INT_Tests
+      - IN: WEB_INT_Tests
       - TASK:                                   
         - script: "echo Starting ...."  
 
