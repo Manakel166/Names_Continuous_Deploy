@@ -9,6 +9,39 @@ jobs:
     steps:                  # required
       - IN: Names_FrontEnd_ciRepo   # at least one IN or OUT required
 
+      
+  - name: Mobile_App_Build_Test
+    type: runCLI
+    steps:
+      - IN: Names_FrontEnd_runCI
+      - TASK:
+        - script: pip install -U robotframework
+        - script: pip install -U requests
+        - script: pip install -U robotframework-requests
+        - script: pip install urllib3 --upgrade --trusted-host https://pypi.python.org
+        - script: pip install robotframework-AppiumLibrary
+        - script: pip install robotframework-xvfb
+        - script: /usr/bin/Xvfb :99 -screen 0 1024x768x24&
+        - script: export DISPLAY=:99
+        - script: echo DOWNLOADING MOBILE GUI TESTS
+        - script: mkdir -p /root/src/github.com/Manakel166/Names_Testing
+        - script: rm -rf /root/src/github.com/Manakel166/Names_Testing
+        - script: git clone https://github.com/Manakel166/Names_Testing.git /root/src/github.com/Manakel166/Names_Testing
+        - script: cd /root/src/github.com/Manakel166/Names_Testing/Names_BDD/
+        - script: echo STARTING MOBILE GUI TESTS on Device FARM
+        - script: echo Launching Tests on LG_Nexus_4_E960_real
+        - script: python -m robot.run --critical C0 --xunitskipnoncritical --variable target_device:LG_Nexus_4_E960_real --xunit /root/src/github.com/Manakel166/Names_Testing/shippable/testresults/RF_MOBILE_TESTS_ANDROID_LG_Nexus_4_E960_real.xml Names_Mobile.robot
+        - script: echo Launching Tests on Motorola_Moto_E_2nd_gen_free
+        - script: python -m robot.run --critical C0 --xunitskipnoncritical --variable target_device:Motorola_Moto_E_2nd_gen_free --xunit /root/src/github.com/Manakel166/Names_Testing/shippable/testresults/RF_MOBILE_TESTS_ANDROID_Motorola_Moto_E_2nd_gen_free.xml Names_Mobile.robot
+         
+   - name: Push_to_Beta_Store
+    type: runCLI
+    steps:
+      - IN: Mobile_App_Build_Test
+      - TASK:
+        - script: echo 'Not Configured Yet' 
+      
+      
   - name: Test_Back_IN_PROD
     type: runCLI
     steps:
