@@ -9,7 +9,7 @@ jobs:
     steps:                  # required
       - IN: Names_FrontEnd_ciRepo   # at least one IN or OUT required
 
-  - name: Deploy_Back_To_PROD
+  - name: Test_Back_IN_PROD
     type: runCLI
     steps:
       - IN: Names_Backend_runCI
@@ -26,4 +26,26 @@ jobs:
         - script: git clone https://github.com/Manakel166/Names_Testing.git /root/src/github.com/Manakel166/Names_Testing
         - script: echo STARTING REST API TESTS IN PRODUCTION
         - script: cd /root/src/github.com/Manakel166/Names_Testing/Names_BDD
-        - script: python -m robot.run --variable api_end_point:https://b2u-rest.herokuapp.com/ --xunit /root/src/github.com/Manakel166/Names_Backend/shippable/testresults/RF_API_TESTS.xml Names_REST.robot
+        - script: python -m robot.run --variable api_end_point:https://b2u-rest.herokuapp.com/ --xunit /root/src/github.com/Manakel166/Names_Testing/shippable/testresults/RF_API_TESTS.xml Names_REST.robot
+        
+ - name: Test_WEB_IN_PROD
+    type: runCLI
+    steps:
+      - IN: Names_FrontEnd_runCI
+      - TASK:
+        - script: pip install -U robotframework
+        - script: pip install -U requests
+        - script: pip install -U robotframework-requests
+        - script: pip install urllib3 --upgrade --trusted-host https://pypi.python.org
+        - script: pip install robotframework-xvfb
+        - script: /usr/bin/Xvfb :99 -screen 0 1024x768x24&
+        - script: export DISPLAY=:99
+        - script: echo DOWNLOADING REST API TESTS
+        - script: mkdir -p /root/src/github.com/Manakel166/Names_Testing
+        - script: git clone https://github.com/Manakel166/Names_Testing.git /root/src/github.com/Manakel166/Names_Testing
+        - script: echo Launching Tests on Firefox / Windows 7
+        - script: python -m robot.run --critical C0 --xunitskipnoncritical --variable selenium_grid_url:http://Manakel166:217e2175-30a5-4fa9-8146-d2350af3a14d@ondemand.saucelabs.com:80/wd/hub  --variable app_url:https://b2u-web.herokuapp.com  --variable target_browser:Firefox  --variable target_platform:'Windows 7' --variable target_browser_version:44 --xunit /root/src/github.com/Manakel166/Names_Testing/shippable/testresults/RF_WEB_TESTS_FF44_WIN.xml Names_Web.robot
+        - script: echo Launching Tests on Chrome / Windows 7
+        - script: python -m robot.run --critical C0 --xunitskipnoncritical --variable selenium_grid_url:http://Manakel166:217e2175-30a5-4fa9-8146-d2350af3a14d@ondemand.saucelabs.com:80/wd/hub  --variable app_url:https://b2u-web.herokuapp.com  --variable target_browser:Chrome  --variable target_platform:'Windows 7' --variable target_browser_version:57 --xunit /root/src/github.com/Manakel166/Names_Testing/shippable/testresults/RF_WEB_TESTS_CH57_WIN.xml Names_Web.robot
+        - script: echo Launching Tests on Safari/ MacOS
+        - script: python -m robot.run --critical C0 --xunitskipnoncritical --variable selenium_grid_url:http://Manakel166:217e2175-30a5-4fa9-8146-d2350af3a14d@ondemand.saucelabs.com:80/wd/hub  --variable app_url:https://b2u-web.herokuapp.com  --variable target_browser:Safari  --variable target_platform:MAC --variable target_browser_version:8 --xunit /root/src/github.com/Manakel166/Names_Testing/shippable/testresults/RF_WEB_TESTS_SA8_MAC.xml Names_Web.robot 
