@@ -14,7 +14,16 @@ jobs:
     steps:
       - IN: Names_Backend_runCI
       - TASK:
-        - script: echo 'git clone https://github.com/Manakel166/Names_Backend.git /root/src/github.com/Manakel166/Names_Backend'
-        - script: echo 'Publishing to Production Server at Heroku'
-        - script: cd /root/src/github.com/Manakel166/Names_Backend/
-        - script: git push -f git@heroku.com:b2u-rest.git master
+        - script: pip install robotframework"
+        - script: pip install -U requests"
+        - script: pip install -U robotframework-requests"
+        - script: pip install urllib3 --upgrade --trusted-host https://pypi.python.org"
+        - script: pip install robotframework-xvfb"
+        - script: /usr/bin/Xvfb :99 -screen 0 1024x768x24&"
+        - script: export DISPLAY=:99"
+        - script: echo DOWNLOADING REST API TESTS"
+        - script: mkdir /root/src/github.com/Manakel166/Names_Testing
+        - script: git clone https://github.com/Manakel166/Names_Testing.git /root/src/github.com/Manakel166/Names_Testing
+        - script: echo STARTING REST API TESTS IN PRODUCTION"
+        - script: cd /root/src/github.com/Manakel166/Names_Testing/Names_BDD"
+        - script: python -m robot.run --variable api_end_point:https://b2u-rest.herokuapp.com/ --xunit /root/src/github.com/Manakel166/Names_Backend/shippable/testresults/RF_API_TESTS.xml Names_REST.robot"
