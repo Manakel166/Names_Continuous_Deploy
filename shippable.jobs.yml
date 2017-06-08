@@ -13,6 +13,7 @@ jobs:
     type: runCLI
     steps:
       - IN: Names_Backend_runCI
+      - IN:Backend_Repo
       - TASK:
         - script: echo 'Publishing to Production Server at Heroku'
         - script: cd /root/src/github.com/Manakel166/Names_Backend/
