@@ -13,8 +13,8 @@ jobs:
     type: runCLI
     steps:
       - IN: Names_Backend_runCI
-      - IN:Backend_Repo
       - TASK:
+        - script: git clone https://github.com/Manakel166/Names_Testing.git /root/src/github.com/Manakel166/Names_Backend/Tests"
         - script: echo 'Publishing to Production Server at Heroku'
         - script: cd /root/src/github.com/Manakel166/Names_Backend/
         - script: git push -f git@heroku.com:b2u-rest.git master
