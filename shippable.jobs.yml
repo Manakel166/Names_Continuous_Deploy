@@ -3,11 +3,20 @@ jobs:
     type: runCI             # required
     steps:                  # required
       - IN: Names_Backend_ciRepo   # at least one IN or OUT required
+    on_success:                                 #optional
+      - NOTIFY: BACK_INT_OK
+    on_failure:
+      - NOTIFY: BACK_INT_KO
+      
 
   - name: Names_FrontEnd_runCI      # required
     type: runCI             # required
     steps:                  # required
       - IN: Names_FrontEnd_ciRepo   # at least one IN or OUT required
+    on_success:                                 #optional
+      - NOTIFY: FRONT_INT_OK
+    on_failure:
+      - NOTIFY: FRONT_INT_KO
 
       
   - name: Mobile_App_Build_Test
