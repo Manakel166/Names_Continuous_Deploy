@@ -51,7 +51,7 @@ jobs:
   - name: Push_to_Beta_Store
     type: runCLI
     steps:
-      - IN: Mobile_App_Build_Test
+      - IN: App_Build_And_Test
       - TASK:
         - script: echo 'Not Configured Yet' 
       
