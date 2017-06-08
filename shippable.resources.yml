@@ -1,60 +1,71 @@
 resources:
-  - name: BACK_Tested_Notif                        #required
+  - name: BACK_INT_OK                       #required
     type: notification
     pointer:
       method: email
       recipients:
         - "manakel166@gmail.com"
 
-  - name: BACK_in_PROD                         #required
-    type: params                           #required
-    version:
-      params:
-        Component: "Backend"                     #requires at least one
-        Status: "Deployed"                     #optional  
+  - name: BACK_INT_KO                       #required
+    type: notification
+    pointer:
+      method: email
+      recipients:
+        - "manakel166@gmail.com" 
 
-  - name: BACK_PROD_Tested                         #required
-    type: params                           #required
-    version:
-      params:
-        Component: "Backend"                     #requires at least one
-        Status: "Deployed_And_Tested"                     #optional          
+  - name: BACK_PROD_OK                       #required
+    type: notification
+    pointer:
+      method: email
+      recipients:
+        - "manakel166@gmail.com"
 
-  - name: WEB_Tested                        #required
-    type: params                           #required
-    version:
-      params:
-        Component: "Web_Front"                     #requires at least one
-        Status: "tested"                     #optional
+  - name: BACK_PROD_KO                       #required
+    type: notification
+    pointer:
+      method: email
+      recipients:
+        - "manakel166@gmail.com" 
 
-  - name: WEB_in_PROD                         #required
-    type: params                           #required
-    version:
-      params:
-        Component: "Web_Front"                     #requires at least one
-        Status: "Deployed"                     #optional  
+  - name: FRONT_INT_OK                       #required
+    type: notification
+    pointer:
+      method: email
+      recipients:
+        - "manakel166@gmail.com"
 
-  - name: WEB_PROD_Tested                         #required
-    type: params                           #required
-    version:
-      params:
-        Component: "Web_Front"                     #requires at least one
-        Status: "Deployed_And_Tested"                     #optional   
+  - name: FRONT_INT_KO                       #required
+    type: notification
+    pointer:
+      method: email
+      recipients:
+        - "manakel166@gmail.com" 
 
-  - name: MOBILE_Tested                        #required
-    type: params                           #required
-    version:
-      params:
-        Component: "Mobile_Front"                     #requires at least one
-        Status: "tested"                     #optional
+  - name: FRONT_PROD_OK                       #required
+    type: notification
+    pointer:
+      method: email
+      recipients:
+        - "manakel166@gmail.com"
 
-  - name: MOBILE_to_BETA_testers                         #required
-    type: params                           #required
-    version:
-      params:
-        Component: "Mobile_Front"                     #requires at least one
-        Status: "Deployed"                     #optional          
+  - name: FRONT_PROD_KO                       #required
+    type: notification
+    pointer:
+      method: email
+      recipients:
+        - "manakel166@gmail.com"      
 
+  - name: MOBILE_INT_OK                       #required
+    type: notification
+    pointer:
+      method: email
+      recipients:
+        - "manakel166@gmail.com"
 
-        
+  - name: MOBILE_INT_KO                       #required
+    type: notification
+    pointer:
+      method: email
+      recipients:
+        - "manakel166@gmail.com"         
      
