@@ -19,7 +19,7 @@ jobs:
       - NOTIFY: FRONT_INT_KO
 
       
-  - name: Mobile_App_Build_Test
+  - name: App_Build_And_Test
     type: runCLI
     steps:
       - IN: Names_FrontEnd_runCI
@@ -43,7 +43,11 @@ jobs:
         - script: python -m robot.run --critical C0 --xunitskipnoncritical --variable target_device:LG_Nexus_4_E960_real --xunit /root/src/github.com/Manakel166/Names_Testing/shippable/testresults/RF_MOBILE_TESTS_ANDROID_LG_Nexus_4_E960_real.xml Names_Mobile.robot
         - script: echo 'Launching Tests on Motorola_Moto_E_2nd_gen_free'
         - script: python -m robot.run --critical C0 --xunitskipnoncritical --variable target_device:Motorola_Moto_E_2nd_gen_free --xunit /root/src/github.com/Manakel166/Names_Testing/shippable/testresults/RF_MOBILE_TESTS_ANDROID_Motorola_Moto_E_2nd_gen_free.xml Names_Mobile.robot
-         
+    on_success:                                 #optional
+      - NOTIFY: MOBILE_INT_OK
+    on_failure:
+      - NOTIFY: MOBILE_INT_KO    
+      
   - name: Push_to_Beta_Store
     type: runCLI
     steps:
