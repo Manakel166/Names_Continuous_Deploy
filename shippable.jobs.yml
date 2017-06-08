@@ -28,7 +28,7 @@ jobs:
         - script: cd /root/src/github.com/Manakel166/Names_Testing/Names_BDD
         - script: python -m robot.run --variable api_end_point:https://b2u-rest.herokuapp.com/ --xunit /root/src/github.com/Manakel166/Names_Testing/shippable/testresults/RF_API_TESTS.xml Names_REST.robot
         
- - name: Test_WEB_IN_PROD
+  - name: Test_WEB_IN_PROD
     type: runCLI
     steps:
       - IN: Names_FrontEnd_runCI
