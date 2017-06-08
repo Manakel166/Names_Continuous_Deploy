@@ -22,7 +22,7 @@ jobs:
         - script: /usr/bin/Xvfb :99 -screen 0 1024x768x24&
         - script: export DISPLAY=:99
         - script: echo DOWNLOADING REST API TESTS
-        - script: mkdir /root/src/github.com/Manakel166/Names_Testing
+        - script: mkdir -p /root/src/github.com/Manakel166/Names_Testing
         - script: git clone https://github.com/Manakel166/Names_Testing.git /root/src/github.com/Manakel166/Names_Testing
         - script: echo STARTING REST API TESTS IN PRODUCTION
         - script: cd /root/src/github.com/Manakel166/Names_Testing/Names_BDD
