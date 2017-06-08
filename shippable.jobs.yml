@@ -15,7 +15,7 @@ jobs:
   - name: Deploy_Back_To_PROD
     type: runCLI
     steps:
-      - IN: BACK_Tested
+      - IN: BACK_Tested_Notif
       - OUT: BACK_in_PROD
       - TASK:                                   
         - script: "echo Starting ...."  
