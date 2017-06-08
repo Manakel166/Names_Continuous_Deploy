@@ -38,6 +38,7 @@ jobs:
         - script: pip install -U requests
         - script: pip install -U robotframework-requests
         - script: pip install urllib3 --upgrade --trusted-host https://pypi.python.org
+        - script: pip install robotframework-Selenium2Library
         - script: pip install robotframework-xvfb
         - script: /usr/bin/Xvfb :99 -screen 0 1024x768x24&
         - script: export DISPLAY=:99
