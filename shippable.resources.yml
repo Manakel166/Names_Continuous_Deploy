@@ -1,5 +1,5 @@
 resources:
-  - name: BACK_Tested                        #required
+  - name: BACK_Tested_Notif                        #required
     type: notification
     pointer:
       method: email

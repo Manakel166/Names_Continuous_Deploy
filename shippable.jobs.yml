@@ -3,13 +3,13 @@ jobs:
     type: runCI             # required
     steps:                  # required
       - IN: Names_Backend_ciRepo   # at least one IN or OUT required
-      - OUT: BACK_Tested
+      - OUT: BACK_Tested_Notif
 
   - name: Names_FrontEnd_runCI      # required
     type: runCI             # required
     steps:                  # required
       - IN: Names_FrontEnd_ciRepo   # at least one IN or OUT required
-      - IN: BACK_Tested
+      - IN: BACK_Tested_Notif
       - OUT: WEB_Tested
 
   - name: Deploy_Back_To_PROD
