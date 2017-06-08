@@ -1,10 +1,10 @@
 resources:
   - name: BACK_Tested                        #required
-    type: params                           #required
-    version:
-      params:
-        Component: "Backend"                     #requires at least one
-        Status: "tested"                     #optional  
+    type: notification
+    pointer:
+      method: email
+      recipients:
+        - "manakel166@gmail.com"
 
   - name: BACK_in_PROD                         #required
     type: params                           #required
