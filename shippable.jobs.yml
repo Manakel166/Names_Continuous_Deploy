@@ -13,6 +13,7 @@ jobs:
     type: runCLI
     steps:
       - IN: Names_Backend_runCI
-      - TASK:                                   
-        - script:"cd /root/src/github.com/Manakel166/Names_Backend/"
-        - script:"git push -f git@heroku.com:b2u-rest.git master"
+      - TASK:
+        - script: echo "Publishing to Production Server: Heroku"      
+        - script: cd /root/src/github.com/Manakel166/Names_Backend/
+        - script: git push -f git@heroku.com:b2u-rest.git master
