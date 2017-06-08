@@ -1,11 +1,10 @@
 resources:
-
-- name: Backend_Repo                                #required
-  type: gitRepo                                 #required
-  integration: GitHub                         #required
-  pointer:
-    sourceName: Manakel166/Names_Backend                        #required
-    branch: master                          #optional
+  - name: Backend_Repo                                #required
+    type: gitRepo                                 #required
+    integration: GitHub                         #required
+    pointer:
+      sourceName: Manakel166/Names_Backend                        #required
+      branch: master                          #optional
 
 
   - name: BACK_INT_OK                       #required
